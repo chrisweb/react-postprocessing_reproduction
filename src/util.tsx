@@ -1,10 +1,9 @@
-import React, { MutableRefObject } from 'react'
-import { Vector2 } from 'three'
+import React, { type MutableRefObject } from 'react'
 import * as THREE from 'three'
-import { type ReactThreeFiber, extend, useThree } from '@react-three/fiber'
+import { type ReactThreeFiber, ThreeElements, extend, useThree } from '@react-three/fiber'
 import type { Effect, BlendFunction } from 'postprocessing'
 
-export const resolveRef = <T,>(ref: T | React.MutableRefObject<T>) =>
+export const resolveRef = <T,>(ref: T | MutableRefObject<T>) =>
   typeof ref === 'object' && ref != null && 'current' in ref ? ref.current : ref
 
 export type EffectConstructor = new (...args: any[]) => Effect

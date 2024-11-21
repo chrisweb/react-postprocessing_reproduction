@@ -32,7 +32,7 @@ export const EffectComposerContext = createContext<{
   resolutionScale?: number
 }>(null!)
 
-export type EffectComposerProps = {  
+export type EffectComposerProps = {
   enabled?: boolean
   children: JSX.Element | JSX.Element[]
   depthBuffer?: boolean
@@ -134,10 +134,10 @@ export const EffectComposer = React.memo(
         const passes: Pass[] = []
 
         if (group.current && instance.current && composer) {
-          const children = instance.current.objects as unknown[]
+          const children = instance.current.children
 
           for (let i = 0; i < children.length; i++) {
-            const child = children[i]
+            const child = children[i].object
 
             if (child instanceof Effect) {
               const effects: Effect[] = [child]
